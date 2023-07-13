@@ -8,19 +8,59 @@ interface TextProps extends TextPropsNative {
   type?: string;
 }
 
-const Text = ({color,type, ...props}: TextProps) => {
-  const handleSize = useMemo(() => {
+const Text = ({ color, type, ...props }: TextProps) => {
+  const fontSize = useMemo(() => {
     switch (type) {
-      case TextTypes.TITLE:
-          return '32px'
+      case TextTypes.BUTTON_BOLD:
+      case TextTypes.BUTTON_LIGHT:
+      case TextTypes.BUTTON_REGULAR:
+        return '18px'
+      case TextTypes.TITLE_BOLD:
+      case TextTypes.TITLE_LIGHT:
+      case TextTypes.TITLE_REGULAR:
+        return '24px';
+      case TextTypes.SUBTITLE_BOLD:
+      case TextTypes.SUBTITLE_LIGHT:
+      case TextTypes.SUBTITLE_REGULAR:
+        return '20px';
+      case TextTypes.PARAGRAPH_BOLD:
+      case TextTypes.PARAGRAPH_LIGHT:
+      case TextTypes.PARAGRAPH_REGULAR:
+        return '10px';
+      case TextTypes.PARAGRAPH_SMALL_BOLD:
+      case TextTypes.PARAGRAPH_SMALL_LIGHT:
+      case TextTypes.PARAGRAPH_SMALL_REGULAR:
       default:
-          return '16px'
+        return '14px';
     }
   }, [type]);
-  
-  return(
-    <ContainerText fontSize={handleSize} color={color} {...props}/>
-  )
-}
+
+  const fontFamily = useMemo(() => {
+    switch (type) {
+      case TextTypes.TITLE_BOLD:
+      case TextTypes.BUTTON_BOLD:
+      case TextTypes.SUBTITLE_BOLD:
+      case TextTypes.PARAGRAPH_BOLD:
+      case TextTypes.PARAGRAPH_SMALL_BOLD:
+        return 'Poppins-Bold';
+      case TextTypes.TITLE_LIGHT:
+      case TextTypes.BUTTON_LIGHT:
+      case TextTypes.SUBTITLE_LIGHT:
+      case TextTypes.PARAGRAPH_LIGHT:
+      case TextTypes.PARAGRAPH_SMALL_LIGHT:
+        return 'Poppins-Light';
+      case TextTypes.TITLE_REGULAR:
+      case TextTypes.BUTTON_REGULAR:
+      case TextTypes.SUBTITLE_REGULAR:
+      case TextTypes.PARAGRAPH_REGULAR:
+      case TextTypes.PARAGRAPH_SMALL_REGULAR:
+        return 'Poppins-Regular';
+      default:
+        return 'Poppins-Regular';
+    }
+  }, [type]);
+
+  return <ContainerText fontFamily={fontFamily} fontSize={fontSize} color={color} {...props} />;
+};
 
 export default Text;

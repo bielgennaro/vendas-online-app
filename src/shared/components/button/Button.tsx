@@ -2,6 +2,7 @@ import { TouchableOpacityProps } from "react-native";
 
 import { theme } from "../../theme/theme";
 import Text from "../text/Text";
+import { TextTypes } from "../text/textTypes";
 import { ContainerButton } from "./button.style";
 
 interface ButtonProps extends TouchableOpacityProps {
@@ -12,7 +13,7 @@ interface ButtonProps extends TouchableOpacityProps {
 const Button = ({title,margin, ...props}: ButtonProps) => {
   return (
     <ContainerButton {...props} margin={margin}>
-      <Text color={theme.colors.neutralTheme.white}>{title}</Text>
+      <Text type={TextTypes.BUTTON_BOLD}color={theme.colors.neutralTheme.white}>{title}</Text>
     </ContainerButton>
   )
 }
