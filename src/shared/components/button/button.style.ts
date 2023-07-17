@@ -8,7 +8,8 @@ interface ContainerButtonProps {
 
 export const ContainerButton = styled.TouchableOpacity<ContainerButtonProps>`
   width: 100%;
-  height: 48px;
+  height: 55px;
+  flex-direction: row;
   border-radius: 5px;
   justify-content: center;
   align-items: center;
@@ -27,6 +28,15 @@ export const GradientButton = styled(LinearGradient)<ContainerButtonProps>`
   height: 100%;
   border-radius: 5px;
   justify-content: center;
+  flex-direction: row;
   align-items: center;
   ${(props: { margin: any; })=> (props.margin ? `margin: ${props.margin};` : '')}
+`
+
+export const ActivityIndicatorButton = styled.ActivityIndicator`
+  margin-left: 8px;
+`
+
+export const ButtonDisabled = styled(ContainerButton)<ContainerButtonProps>`
+  background-color: ${theme.colors.grayTheme.gray100};
 `

@@ -11,6 +11,5 @@ export const theme = {
   },
   buttons: {
     buttonsTheme,
-
     }
   }
