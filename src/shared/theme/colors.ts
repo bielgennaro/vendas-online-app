@@ -8,6 +8,10 @@ export const neutralTheme = {
   black: '#262824'
 }
 
+export const orangeTheme = {
+  orange80: '#E7774D',
+}
+
 export const mainTheme = {
   primary: '#8C29B0',
 }
